@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="seafwg@localhost" uuid="390b47d5-3a26-4cb4-9185-728320c730a2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/seafwg</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="travel" uuid="18e93173-e0d8-41c8-8e03-4a959fea8b54">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/travel</jdbc-url>
+    </data-source>
+  </component>
+</project>
