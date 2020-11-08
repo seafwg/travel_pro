@@ -40,8 +40,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void saveUserInfo(User user) {
         String sql = "INSERT INTO tab_user " +
-                "(username,password,name,birthday,sex,telephone,email) " +
-                "VALUES(?,?,?,?,?,?,?)";
+                "(username,password,name,birthday,sex,telephone,email,status,code) " +
+                "VALUES(?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(sql,
                 user.getUsername(),
                 user.getPassword(),
@@ -49,7 +49,36 @@ public class UserDaoImpl implements UserDao {
                 user.getBirthday(),
                 user.getSex(),
                 user.getTelephone(),
-                user.getEmail()
+                user.getEmail(),
+                user.getStatus(),
+                user.getCode()
         );
+    }
+
+    /**
+     * 获取激活码：
+     * @param code
+     * @return
+     */
+    @Override
+    public User findActiveCode(String code) {
+        User user = null;
+        try {
+            String sql = "SELECT * FROM tab_user where code = ?";
+            user = jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),code);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    /**
+     * 更新激活状态码：
+     * @param user
+     */
+    @Override
+    public void updateActiveCode(User user) {
+        String sql = "UPDATE tab_user SET status = 'Y' WHERE uid=?";
+        jdbcTemplate.update(sql, user.getUid());
     }
 }

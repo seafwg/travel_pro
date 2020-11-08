@@ -7,6 +7,7 @@ cn\itcast\travel\web\servlet\RegisterUserServlet.class
 cn\itcast\travel\dao\UserDao.class
 cn\itcast\travel\service\UserService.class
 cn\itcast\travel\util\MailUtils.class
+cn\itcast\travel\web\servlet\activeUserServlet.class
 cn\itcast\travel\domain\RouteImg.class
 cn\itcast\travel\util\JedisUtil.class
 cn\itcast\travel\util\MailUtils$1.class

@@ -34,9 +34,26 @@ public class UserServiceImpl implements UserService {
         userDao.saveUserInfo(user);
 
         //③给注册用户发送邮件：
-        String content = "<a href='http://localhost/travel/activeUserServlet?code=\"+user.getCode()+\"'>点击激活【黑马旅游网】</a>";
+        String content = "<a href='http://localhost/travel/activeUserServlet?code="+user.getCode()+"'>点击激活【黑马旅游网】</a>";
         MailUtils.sendMail(user.getEmail(),content,"激活邮件，请您激活...");
 
         return true;
+    }
+
+    /**
+     * 获取激活码：激活邮件
+     * @param code
+     * @return
+     */
+    @Override
+    public boolean getActive(String code) {
+        User user = userDao.findActiveCode(code);
+        if(user != null) {
+            //调用DAO层更新激活状态
+            userDao.updateActiveCode(user);
+            return true;
+        }else{
+            return false;
+        }
     }
 }

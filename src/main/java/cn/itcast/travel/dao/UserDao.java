@@ -20,4 +20,17 @@ public interface UserDao {
      * @return
      */
     public void saveUserInfo(User user);
+
+    /**
+     * 获取激活码：
+     * @param code
+     * @return
+     */
+    public User findActiveCode(String code);
+
+    /**
+     * 更新用户的激活状态码：
+     * @param user
+     */
+    void updateActiveCode(User user);
 }
