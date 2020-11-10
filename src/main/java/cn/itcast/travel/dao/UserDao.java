@@ -33,4 +33,12 @@ public interface UserDao {
      * @param user
      */
     void updateActiveCode(User user);
+
+    /**
+     * 用户登录：根据用户登录名和密码查询用户是否注册
+     * @param name
+     * @param password
+     * @return
+     */
+    User findUsernameAndPassword(String username, String password);
 }

@@ -72,8 +72,10 @@
 						//发送ajax请求：
 						$.ajax({
 							type: "POST",
-							url: "registerUserServlet",
+							contentType: "application/json",
+							url: "user/regist",
 							data: $(this).serialize(),
+							dataType: "json",
 							success: (data) => {
 								//处理服务器响应的数据  data  {flag:true,errorMsg:"注册失败"}
 								if (data.flag) {
@@ -84,7 +86,7 @@
 									$("#errorMsg").html(data.errorMsg);
 								}
 							}
-						})
+						});
 					}
 
 					return false; //true就会提交数据

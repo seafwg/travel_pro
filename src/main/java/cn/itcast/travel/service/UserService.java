@@ -22,4 +22,11 @@ public interface UserService {
      * @return
      */
     boolean getActive(String code);
+
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     */
+    User loginUser(User user);
 }
